@@ -8,8 +8,8 @@ const App = () => {
       const res = await axios.post(
         `https://sandbox.rutterapi.com/item/public_token/exchange`,
         {
-          client_id: process.env.CLIENT_ID,
-          secret: process.env.SECRET_KEY,
+          client_id: process.env.REACT_APP_CLIENT_ID,
+          secret: process.env.REACT_APP_SECRET_KEY,
           public_token: publicToken,
         }
       );
@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const { open } = useRutterLink({
-    publicKey: process.env.PUBLIC_KEY || '',
+    publicKey: process.env.REACT_APP_PUBLIC_KEY || '',
     onSuccess: (publicToken: string) => {
       console.log('publicToken', publicToken);
       exchangeCredentials(publicToken);
